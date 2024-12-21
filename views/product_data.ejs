@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <%- include('header.ejs')%>
+  </head>
+  <body>
+    <h1 class="bg-dark text-warning text-center p-3">Product Data</h1>
+    <hr />
+    <br />
+    <table class="table-hover table-bordered table" width="100%">
+      <tr>
+        <th>Sr No</th>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th>Stock</th>
+        <th></th>
+        <th></th>
+      </tr>
+      <% data.map((val,index)=>{ %> 
+          <tr>
+            <td><%= index+1 %></td>
+            <td><%= val.id %></td>
+            <td><%= val.name %></td>
+            <td><%= val.category %></td>
+            <td><%= val.price %></td>
+            <td><%= val.stock %></td>
+            <td>
+                <a href="/delete_product/<%= val.id %>" onclick="return confirm('Are you sure ? ')"><i class="fa fa-trash"style="color:red;font-weight: bold;"></i></a>
+            </td>
+            <td>
+                <a href="/edit_product/<%= val.id %>" onclick="return confirm('Are you sure ? ')"><i class="fa fa-edit"style="color:green;font-weight: bold;"></i></a>
+            </td>
+          </tr>
+        <% })%>
+    </table>
+  </body>
+</html>

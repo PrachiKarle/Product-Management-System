@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include('header.ejs')%>
+</head>
+<body>
+    <h1 class="bg-dark text-warning text-center p-3">Update Product Detail</h1>
+    <hr><br>
+
+    <form action="/update_product" method="post" class="p-3">
+        <div class="form-group my-3">
+            <label for="">Product id</label>
+            <input
+              type="text" value="<%= data.id %>"
+              class="form-control"
+              name="prod_id"
+              id="prod_id"
+              readonly
+            />
+          </div>
+        <div class="form-group my-3">
+            <label for="">Update Product Name</label>
+            <input
+              type="text" value="<%= data.name %>"
+              class="form-control"
+              name="prod_name"
+              id="prod_name"
+              required
+            />
+          </div>
+    
+        
+          <div class="form-group my-3">
+            <label for="">Update Product Category</label>
+
+            <select name="prod_category" class="form-control" required>
+
+              <option value="none" <%if(data.category=='none'){ %> selected <%}%> >_Select_</option>
+
+              <option value="Mobile Phones" <%if(data.category=='Mobile Phones'){ %> selected <%}%> > Mobile Phones</option>
+
+              <option value="Laptops" <%if(data.category=='Laptops'){ %> selected <%}%> >Laptops</option>
+
+              <option value="Televisions" <%if(data.category=='Televisions'){ %> selected <%}%> >Televisions</option>
+
+              <option value="Cameras" <%if(data.category=='Cameras'){ %> selected <%}%> >Cameras</option>
+
+              <option value="Accessories" <%if(data.category=='Accessories'){ %> selected <%}%> >Accessories</option>
+            </select>
+          </div>
+    
+          <div class="form-group my-3">
+            <label for="">Update Product Price</label>
+            <input
+              type="text"
+              required value="<%= data.price %>"
+              class="form-control"
+              name="prod_price"
+              id="prod_price"
+            />
+          </div>
+    
+          <div class="form-group my-3">
+            <label for="">Update Stock</label>
+            <input
+              type="text" value="<%= data.stock %>"
+              class="form-control"
+              name="stock"
+              id="stock"
+              required
+            />
+          </div>
+    
+          <button class="btn btn-danger">Submit</button>
+    </form>
+</body>
+</html>
